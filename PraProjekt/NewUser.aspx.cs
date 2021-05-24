@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace PraProjekt
 {
-    public partial class _Default : Page
+    public partial class NewUser : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
