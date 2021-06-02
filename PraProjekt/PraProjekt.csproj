@@ -110,6 +110,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="CreateQuiz.aspx" />
+    <Content Include="CurrentRanking.aspx" />
+    <Content Include="FinalRanking.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -120,6 +123,9 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="JoinQuiz.aspx" />
+    <Content Include="StartingQuiz.aspx" />
+    <Content Include="WelcomePage.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="GuestLogIn.aspx" />
     <Content Include="LogInScreen.aspx" />
@@ -158,6 +164,27 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="CreateQuiz.aspx.cs">
+      <DependentUpon>CreateQuiz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateQuiz.aspx.designer.cs">
+      <DependentUpon>CreateQuiz.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CurrentRanking.aspx.cs">
+      <DependentUpon>CurrentRanking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CurrentRanking.aspx.designer.cs">
+      <DependentUpon>CurrentRanking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FinalRanking.aspx.cs">
+      <DependentUpon>FinalRanking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FinalRanking.aspx.designer.cs">
+      <DependentUpon>FinalRanking.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -167,6 +194,13 @@
     </Compile>
     <Compile Include="GuestLogIn.aspx.designer.cs">
       <DependentUpon>GuestLogIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JoinQuiz.aspx.cs">
+      <DependentUpon>JoinQuiz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JoinQuiz.aspx.designer.cs">
+      <DependentUpon>JoinQuiz.aspx</DependentUpon>
     </Compile>
     <Compile Include="LogInScreen.aspx.cs">
       <DependentUpon>LogInScreen.aspx</DependentUpon>
@@ -183,6 +217,20 @@
       <DependentUpon>NewUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StartingQuiz.aspx.cs">
+      <DependentUpon>StartingQuiz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StartingQuiz.aspx.designer.cs">
+      <DependentUpon>StartingQuiz.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WelcomePage.aspx.cs">
+      <DependentUpon>WelcomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WelcomePage.aspx.designer.cs">
+      <DependentUpon>WelcomePage.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

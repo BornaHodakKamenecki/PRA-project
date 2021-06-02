@@ -70,7 +70,7 @@ form{
 					<input placeholder="Zaporka..." type="password" class="form-control form-control-sm" id="exampleInputPassword1">
 				</div>
 				<button type="submit" class="btn btn-primary btn-block">Prijava</button>
-				<a href ="NewUser.aspx" <button type="submit" class="btn btn-primary btn-block">Prijavi se kao gost</button></a>
+				<a href ="GuestLogIn.aspx" <button type="submit" class="btn btn-primary btn-block">Prijavi se kao gost</button></a>
 				
 				<div class="sign-up">
 					Nemate račun? <a href="NewUser.aspx">Napravite ga</a>
