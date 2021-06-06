@@ -124,6 +124,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="JoinQuiz.aspx" />
+    <Content Include="Models\Procedure.sql" />
     <Content Include="StartingQuiz.aspx" />
     <Content Include="WelcomePage.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -209,6 +210,11 @@
     <Compile Include="LogInScreen.aspx.designer.cs">
       <DependentUpon>LogInScreen.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Answer.cs" />
+    <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\Quiz.cs" />
+    <Compile Include="Models\Repository.cs" />
+    <Compile Include="Models\UserAcc.cs" />
     <Compile Include="NewUser.aspx.cs">
       <DependentUpon>NewUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
