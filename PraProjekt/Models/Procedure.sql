@@ -43,14 +43,13 @@ use DBQuizard
 go
 
 create proc CreateUserAcc
-	@IDUserAcc int output,
 	@Email nvarchar(100),
 	@Pass nvarchar(100),
-	@Username nvarchar(100)
+	@Username nvarchar(100),
+	@IsActive int
 as
 	insert into UserAcc(Email, Pass, Username, IsActive)
-		values (@Email, @Pass, @Username, 1)
-	set @IDUserAcc = SCOPE_IDENTITY()
+		values (@Email, @Pass, @Username, @IsActive)
 go
 
 create proc LoginUser

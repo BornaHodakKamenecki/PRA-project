@@ -13,8 +13,8 @@ namespace PraProjekt.Models
         private static string cs = ConfigurationManager.ConnectionStrings["cs"].ConnectionString;
 
         // USER
-        public static int CreateUserAcc(UserAcc u)
-            => SqlHelper.ExecuteNonQuery(cs, "CreateUserAcc", u.Email, u.Pass, u.Username);
+        public static int CreateUserAcc(UserAcc user)
+            => SqlHelper.ExecuteNonQuery(cs, "CreateUserAcc", user.Email, user.Pass, user.Username, user.IsActive);
 
         public static int LoginUser(string email, string pass)
             => SqlHelper.ExecuteNonQuery(cs, "LoginUser", email, pass);
