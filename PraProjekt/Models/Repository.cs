@@ -14,7 +14,7 @@ namespace PraProjekt.Models
 
         // USER
         public static int CreateUserAcc(UserAcc u)
-            => SqlHelper.ExecuteNonQuery(cs, "CreateUserAcc", u.Email, u.Pass, u.Username);
+            => SqlHelper.ExecuteNonQuery(cs, "CreateUserAcc", u.Email, u.Pass, u.Username, u.IsActive);
 
         public static int LoginUser(string email, string pass)
             => SqlHelper.ExecuteNonQuery(cs, "LoginUser", email, pass);
@@ -27,7 +27,7 @@ namespace PraProjekt.Models
 
         // QUIZ
         public static void CreateQuiz(Quiz q)
-            => SqlHelper.ExecuteNonQuery(cs, "CreateQuiz", q.Title, q.UserAccID);
+            => SqlHelper.ExecuteNonQuery(cs, "CreateQuiz", q.Title,q.IsActive, q.UserAccID);
 
         public static Quiz GetQuiz(int idQuiz)
         {
@@ -75,7 +75,7 @@ namespace PraProjekt.Models
 
         //QUESTION
         public static void CreateQuestion(Question q)
-            => SqlHelper.ExecuteNonQuery(cs, "CreateQuestion", q.QuestionText, q.Duration, q.QuizID);
+            => SqlHelper.ExecuteNonQuery(cs, "CreateQuestion", q.QuestionText, q.Duration, q.IsActive, q.QuizID);
 
         public static Question GetQuestion(int idQuestion)
         {
