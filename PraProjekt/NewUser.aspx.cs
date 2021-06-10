@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PraProjekt.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,18 @@ namespace PraProjekt
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+        protected void btnRegister_Click(object sender, EventArgs e)
+        {
+            Repository.CreateUserAcc(new UserAcc()
+            {
+                Email = tbEmail.Text,
+                Pass = tbPass.Text,
+                Username = tbUserName.Text,
+                IsActive = 1
+            });
+
+            Response.Redirect("CreateQuiz.aspx");
         }
     }
 }
