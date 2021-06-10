@@ -63,8 +63,11 @@ form{
 				<!-- to error: add class "has-danger" -->
 				<div class="form-group">
                     <asp:Label Text="Unesite email:" runat="server" />
-                    <asp:TextBox runat="server" ID="tbEmail" AutoCompleteType="Email" TextMode="Email"/>
-					
+                    <asp:TextBox runat="server" ID="tbEmail" OnTextChanged="tbEmail_TextChanged" AutoCompleteType="Email" TextMode="Email"/>
+					<br />
+					<span id="spanCheckEmail" runat="server" visible="false" class="alert-danger">
+                        <asp:Label Text="text" runat="server" ID="lblCheckEmail"/>
+					</span>
 				</div>
 				<div class="form-group">
                     <asp:Label Text="Unesite zaporku:" runat="server" />

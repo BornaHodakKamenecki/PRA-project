@@ -16,6 +16,23 @@ namespace PraProjekt.Models
         public static int CreateUserAcc(UserAcc user)
             => SqlHelper.ExecuteNonQuery(cs, "CreateUserAcc", user.Email, user.Pass, user.Username, user.IsActive);
 
+        public static IEnumerable<String> GetEmails()
+        {
+            var tblEmails = SqlHelper.ExecuteDataset(cs, "GetEmails").Tables[0];
+
+            foreach (DataRow row in tblEmails.Rows)
+            {
+                yield return row.ToString();
+            }
+        }
+
+        public static int GetEmail(string Email)
+        {
+            var email = SqlHelper.ExecuteDataset(cs, "GetEmail", Email).Tables[0];
+
+            return email.Rows.Count > 0 ? 1 : 0;
+        }
+
         public static int LoginUser(string email, string pass)
             => SqlHelper.ExecuteNonQuery(cs, "LoginUser", email, pass);
 

@@ -52,6 +52,20 @@ as
 		values (@Email, @Pass, @Username, @IsActive)
 go
 
+create proc GetEmails
+as
+	select Email
+	from UserAcc
+go
+
+create proc GetEmail
+	@email nvarchar(100)
+as
+	select Email
+	from UserAcc
+	where Email = @email
+go
+
 create proc LoginUser
 	@Email nvarchar(100),
 	@Pass nvarchar(100),
