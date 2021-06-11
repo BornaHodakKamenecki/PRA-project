@@ -6,7 +6,7 @@
 <head runat="server">
     <title>APLIKACIJA</title>
     <link href="Content/bootstrap.css" rel="stylesheet" />
-<style>
+    <style>
 	html,body { 
 	height: 100%; 
 }
@@ -52,25 +52,25 @@ form{
 </head>
 <body>
     <form id="form1" runat="server">
-      <div class="global-container">
-	<div class="card login-form">
-	<div class="card-body">
-		<h3 class="card-title text-center">Dobrodošli</h3>
-		<div class="card-text">
-			<!--
+        <div class="global-container">
+            <div class="card login-form">
+                <div class="card-body">
+                    <h3 class="card-title text-center">Dobrodošli</h3>
+                    <div class="card-text">
+                        <!--
 			<div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
-			<form>
-				<!-- to error: add class "has-danger" -->
-				<div class="form-group">
-					<label for="exampleInputEmail1">Željeno korisničko ime:</label>
-					<input placeholder="Korisničko ime..." type="text" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp">
-				</div>
-				<button type="submit" class="btn btn-primary btn-block">Prijava</button>
-			</form>
-		</div>
-	</div>
-</div>
-</div>
+                        <form>
+                            <!-- to error: add class "has-danger" -->
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Željeno korisničko ime:</label>
+                                <input placeholder="Korisničko ime..." type="text" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Prijava</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </form>
 </body>
 </html>
