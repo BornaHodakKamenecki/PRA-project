@@ -13,11 +13,33 @@ namespace PraProjekt.Models
         private static string cs = ConfigurationManager.ConnectionStrings["cs"].ConnectionString;
 
         // USER
-        public static int CreateUserAcc(UserAcc u)
-            => SqlHelper.ExecuteNonQuery(cs, "CreateUserAcc", u.Email, u.Pass, u.Username, u.IsActive);
+        public static int CreateUserAcc(UserAcc user)
+            => SqlHelper.ExecuteNonQuery(cs, "CreateUserAcc", user.Email, user.Pass, user.Username, user.IsActive);
+
+        public static IEnumerable<String> GetEmails()
+        {
+            var tblEmails = SqlHelper.ExecuteDataset(cs, "GetEmails").Tables[0];
+
+            foreach (DataRow row in tblEmails.Rows)
+            {
+                yield return row.ToString();
+            }
+        }
+
+        public static int GetEmail(string Email)
+        {
+            var email = SqlHelper.ExecuteDataset(cs, "GetEmail", Email).Tables[0];
+
+            return email.Rows.Count > 0 ? 1 : 0;
+        }
+
 
         public static int LoginUser(string email, string pass)
-            => SqlHelper.ExecuteNonQuery(cs, "LoginUser", email, pass);
+        {
+            var user = SqlHelper.ExecuteDataset(cs, "LoginUser", email, pass).Tables[0];
+
+            return user.Rows.Count > 0 ? 1 : 0;
+        }
 
         public static void UpdateUserAcc(UserAcc u)
             => SqlHelper.ExecuteNonQuery(cs, "UpdateUserAcc", u.IDUserAcc, u.Pass, u.Username);
@@ -27,7 +49,7 @@ namespace PraProjekt.Models
 
         // QUIZ
         public static void CreateQuiz(Quiz q)
-            => SqlHelper.ExecuteNonQuery(cs, "CreateQuiz", q.Title,q.IsActive, q.UserAccID);
+            => SqlHelper.ExecuteNonQuery(cs, "CreateQuiz", q.Title, q.UserAccID);
 
         public static Quiz GetQuiz(int idQuiz)
         {
@@ -75,7 +97,7 @@ namespace PraProjekt.Models
 
         //QUESTION
         public static void CreateQuestion(Question q)
-            => SqlHelper.ExecuteNonQuery(cs, "CreateQuestion", q.QuestionText, q.Duration, q.IsActive, q.QuizID);
+            => SqlHelper.ExecuteNonQuery(cs, "CreateQuestion", q.QuestionText, q.Duration, q.QuizID);
 
         public static Question GetQuestion(int idQuestion)
         {

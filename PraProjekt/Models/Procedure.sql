@@ -52,10 +52,24 @@ as
 		values (@Email, @Pass, @Username, @IsActive)
 go
 
+create proc GetEmails
+as
+	select Email
+	from UserAcc
+go
+
+create proc GetEmail
+	@email nvarchar(100)
+as
+	select Email
+	from UserAcc
+	where Email = @email
+go
+
 create proc LoginUser
 	@Email nvarchar(100),
-	@Pass nvarchar(100),
-	@Succes int output
+	@Pass nvarchar(100)
+	--@Succes int output
 as
 	select COUNT(*)
 	from UserAcc
@@ -84,12 +98,13 @@ as
 go
 
 create proc CreateQuiz
+	@IDQuiz int output,
 	@Title nvarchar(100),
-	@IsActive int,
 	@UserAccID int
 as
 	insert into Quiz(Title, IsActive, UserAccID)
-		values (@Title, @IsActive, @UserAccID)
+		values (@Title, 1, @UserAccID)
+	set @IDQuiz = SCOPE_IDENTITY()
 go
 
 create proc GetQuiz
@@ -126,13 +141,14 @@ as
 go
 
 create proc CreateQuestion
+	@IDQuestion int output,
 	@Question nvarchar(100),
 	@Duration int,
-	@IsActive int,
 	@QuizID int
 as
 	insert into Question(Question, Duration, IsActive, QuizID)
-		values (@Question, @Duration, @IsActive, @QuizID)
+		values (@Question, @Duration, 1, @QuizID)
+	set @IDQuestion = SCOPE_IDENTITY()
 go
 
 create proc GetQuestion
@@ -166,13 +182,14 @@ as
 go
 
 create proc CreateAnswer
+	@IDAnswer int output,
 	@Answer nvarchar(100),
 	@RightAnswer int,
-	@IsActive int,
 	@QuestionID int
 as
 	insert into Answer(Answer, RightAnswer, IsActive, QuestionID)
-		values (@Answer, @RightAnswer, @IsActive, @QuestionID)
+		values (@Answer, @RightAnswer, 1, @QuestionID)
+	set @IDAnswer = SCOPE_IDENTITY()
 go
 
 create proc GetAnswer
