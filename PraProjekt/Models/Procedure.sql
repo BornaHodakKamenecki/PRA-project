@@ -71,7 +71,7 @@ create proc LoginUser
 	@Pass nvarchar(100)
 	--@Succes int output
 as
-	select COUNT(*)
+	select *
 	from UserAcc
 	where Email = @Email and Pass = @Pass and IsActive = 1
 go
