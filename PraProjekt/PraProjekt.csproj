@@ -243,6 +243,7 @@
       <DependentUpon>LogInScreen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Answer.cs" />
+    <Compile Include="Models\Guest.cs" />
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\Quiz.cs" />
     <Compile Include="Models\Repository.cs" />

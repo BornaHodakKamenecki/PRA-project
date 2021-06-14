@@ -36,6 +36,12 @@ create table Answer (
 	IsActive int default 1,
 	QuestionID int foreign key references Question(IDQuestion)
 )
+
+create table Guest (
+	IDGuest int primary key identity,
+	Nickname nvarchar(20)
+)
+
 go
 
 -- CRUD procedure
@@ -230,4 +236,12 @@ as
 	RightAnswer = @RightAnswer,
 	IsActive = @IsActive
 	where IDAnswer = @IDAnswer
+go
+
+create proc DeleteFromGuest
+as
+begin
+	delete from NewGuest
+	where DateOfCreation < DATEADD(MINUTE, 30, GETDATE())
+end
 go

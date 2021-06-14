@@ -16,6 +16,9 @@ namespace PraProjekt.Models
         public static int CreateUserAcc(UserAcc user)
             => SqlHelper.ExecuteNonQuery(cs, "CreateUserAcc", user.Email, user.Pass, user.Username, user.IsActive);
 
+        internal static void CreateNewGuest(Guest guest)
+            => SqlHelper.ExecuteNonQuery(cs, "CreateNewGuest", guest.Nickname);
+
         public static IEnumerable<String> GetEmails()
         {
             var tblEmails = SqlHelper.ExecuteDataset(cs, "GetEmails").Tables[0];
