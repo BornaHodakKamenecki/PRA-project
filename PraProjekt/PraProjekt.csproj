@@ -137,12 +137,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AllQuizzes.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="CreateQuiz.aspx" />
+    <Content Include="CreateQuestion.aspx" />
+    <Content Include="CreateQuiZ.aspx" />
     <Content Include="CurrentRanking.aspx" />
     <Content Include="FinalRanking.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -195,14 +197,28 @@
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="CreateQuiz.aspx.cs">
-      <DependentUpon>CreateQuiz.aspx</DependentUpon>
+    <Compile Include="AllQuizzes.aspx.cs">
+      <DependentUpon>AllQuizzes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CreateQuiz.aspx.designer.cs">
-      <DependentUpon>CreateQuiz.aspx</DependentUpon>
+    <Compile Include="AllQuizzes.aspx.designer.cs">
+      <DependentUpon>AllQuizzes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="CreateQuestion.aspx.cs">
+      <DependentUpon>CreateQuestion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateQuestion.aspx.designer.cs">
+      <DependentUpon>CreateQuestion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateQuiZ.aspx.cs">
+      <DependentUpon>CreateQuiZ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateQuiZ.aspx.designer.cs">
+      <DependentUpon>CreateQuiZ.aspx</DependentUpon>
     </Compile>
     <Compile Include="CurrentRanking.aspx.cs">
       <DependentUpon>CurrentRanking.aspx</DependentUpon>

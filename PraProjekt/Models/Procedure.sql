@@ -37,6 +37,14 @@ create table Answer (
 	QuestionID int foreign key references Question(IDQuestion)
 )
 
+
+create table NewGuest(
+	ID int primary key identity not null,
+	Nickname nvarchar(50) not null,
+	DateOfCreation DATETIME NOT NULL DEFAULT (GETDATE())
+)
+
+
 create table Guest (
 	IDGuest int primary key identity,
 	Nickname nvarchar(20)
@@ -243,5 +251,15 @@ as
 begin
 	delete from NewGuest
 	where DateOfCreation < DATEADD(MINUTE, 30, GETDATE())
+end
+go
+
+
+create proc CreateNewGuest
+	@Nickname nvarchar(20)
+as
+begin
+	insert into NewGuest(Nickname, DateOfCreation)
+	values(@Nickname)
 end
 go

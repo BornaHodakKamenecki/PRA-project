@@ -1,19 +1,23 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateQuiZ.aspx.cs" Inherits="PraProjekt.CreateQuiZ" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AllQuizzes.aspx.cs" Inherits="PraProjekt.AllQuizzes" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+	<title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
-
-        <h2>Kreiranje kviza</h2>
-		
+	<form id="form1" runat="server">
+		<div>
+			<h2>Kreiranje pitanja</h2>
+		</div>
 		<div>
 			<h4>Pitanja:</h4>
+			<h4>Uredi</h4>
+			<h4>Ukloni</h4>
+
 			<div class="questions">
+				<asp:Label Text="Unesite pitanje:" runat="server" />
 				<asp:TextBox runat="server" class="question-box" />
 				<br />    
 			</div>
@@ -47,6 +51,6 @@
 			<asp:Button Text="Spremi pitanje" Width="500" Height="50" runat="server" />
 			<asp:Button Text="Odbaci pitanje" Width="500" Height="50" runat="server" />
 		</div>
-    </form>
+	</form>
 </body>
 </html>

@@ -136,6 +136,9 @@ namespace PraProjekt.Models
 
         public static void UpdateOrDeleteQuestion(Question q)
             => SqlHelper.ExecuteNonQuery(cs, "UpdateOrDeleteQuestion", q.IDQuestion, q.QuestionText, q.Duration, q.IsActive);
+      
+
+
 
         // ANSWER
         public static void CreateAnswer(Answer a)

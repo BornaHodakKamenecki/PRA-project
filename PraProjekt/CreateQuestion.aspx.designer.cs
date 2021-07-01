@@ -10,7 +10,7 @@
 
 namespace PraProjekt
 {
-    public partial class CreateQuiZ
+    public partial class CreateQuiz
     {
 
         /// <summary>
