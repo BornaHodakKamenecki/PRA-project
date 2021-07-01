@@ -32,7 +32,6 @@ form{
 	margin-top:20px;
 }
 
-
 .login-form{ 
 	width:330px;
 	margin:20px;
@@ -62,16 +61,19 @@ form{
 			<form>
 				<!-- to error: add class "has-danger" -->
 				<div class="form-group">
-					<label for="exampleInputEmail1">Unesite email:</label>
-					<input placeholder="Email..." type="email" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <asp:Label Text="Unesite email:" runat="server" />
+                    <asp:TextBox runat="server" class="form-control form-control-sm" ID="tbEmail" OnTextChanged="tbEmail_TextChanged" AutoCompleteType="Email" TextMode="Email"/>
+					<br />
+					<span id="spanCheckUser" runat="server" visible="false" class="alert-danger">
+                        <asp:Label Text="text" runat="server" ID="lblCheckUser"/>
+					</span>
 				</div>
 				<div class="form-group">
-					<label for="exampleInputPassword1">Unesite zaporku:</label>
-					<input placeholder="Zaporka..." type="password" class="form-control form-control-sm" id="exampleInputPassword1">
+                    <asp:Label Text="Unesite zaporku:" runat="server" />
+                    <asp:TextBox runat="server" ID="tbPass" class="form-control form-control-sm" TextMode="Password"/>
 				</div>
-				<button type="submit" class="btn btn-primary btn-block">Prijava</button>
+				<asp:Button Text="Prijava" runat="server" CssClass="btn btn-primary btn-block"	ID="btnPrijava" OnClick="btnPrijava_Click"/>
 				<a href ="GuestLogIn.aspx" <button type="submit" class="btn btn-primary btn-block">Prijavi se kao gost</button></a>
-				
 				<div class="sign-up">
 					Nemate račun? <a href="NewUser.aspx">Napravite ga</a>
 				</div>

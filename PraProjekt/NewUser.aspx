@@ -63,7 +63,9 @@ form{
 				<!-- to error: add class "has-danger" -->
 				<div class="form-group">
                     <asp:Label Text="Unesite email:" runat="server" />
+
                     <asp:TextBox runat="server" ID="tbEmail" OnTextChanged="tbEmail_TextChanged" AutoCompleteType="Email" TextMode="Email"/>
+
 					<br />
 					<span id="spanCheckEmail" runat="server" visible="false" class="alert-danger">
                         <asp:Label Text="text" runat="server" ID="lblCheckEmail"/>
@@ -71,6 +73,7 @@ form{
 				</div>
 				<div class="form-group">
                     <asp:Label Text="Unesite zaporku:" runat="server" />
+
                     <asp:TextBox runat="server" ID="tbPass" TextMode="Password"/>
 				</div>
 				<div class="form-group">
@@ -85,7 +88,9 @@ form{
 					ControlToCompare="tbRepeatedPass" Display="Dynamic" ForeColor="Red" Operator="Equal" Type="String"/>
 				<div class="form-group">
                     <asp:Label Text="Željeno korisničko ime:" runat="server" />
+
                     <asp:TextBox runat="server" ID="tbUserName"/>
+
 					<!--<label for="exampleInputEmail1">Željeno korisničko ime:</label>
 					<input placeholder="Korisničko ime..." type="text" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp">-->
 				</div>

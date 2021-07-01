@@ -10,10 +10,43 @@ namespace PraProjekt
 {
     public partial class LogInScreen : System.Web.UI.Page
     {
+        private bool exists;
         protected void Page_Load(object sender, EventArgs e)
         {
         }
 
-        
+
+        //pitaj hrvoja
+        protected void tbEmail_TextChanged(object sender, EventArgs e)
+                    => checkUser();
+
+        private void checkUser()
+        {
+            var user = Repository.LoginUser(tbEmail.Text.ToString(), tbPass.Text.ToString());
+
+            if (user != 0)
+            {
+                exists = true;
+                return;
+            }
+            exists = false;
+        }
+
+        protected void btnPrijava_Click(object sender, EventArgs e)
+        {
+            checkUser();
+
+            if (exists == false)
+            {
+                spanCheckUser.Visible = true;
+                lblCheckUser.Text = "Pogrešno unesen Email ili šifra";
+            }
+            else
+            {
+                Response.Redirect("CreateQuiz.aspx");
+            }
+        }
+
+
     }
 }

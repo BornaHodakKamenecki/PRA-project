@@ -17,7 +17,8 @@ namespace PraProjekt
         }
 
         // provjera postoji li Email u bazi
-        protected void tbEmail_TextChanged(object sender, EventArgs e) 
+
+        protected void tbEmail_TextChanged(object sender, EventArgs e)
             => checkEmail();
 
         private void checkEmail()
@@ -57,3 +58,4 @@ namespace PraProjekt
 
     }
 }
+

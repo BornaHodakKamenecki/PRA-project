@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LogInScreen.aspx.cs" Inherits="PraProjekt.LogInScreen" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GuestLogIn.aspx.cs" Inherits="PraProjekt.GuestLogIn" %>
 
 <!DOCTYPE html>
 
@@ -62,10 +62,10 @@ form{
 			<form>
 				<!-- to error: add class "has-danger" -->
 				<div class="form-group">
-					<label for="exampleInputEmail1">Željeno korisničko ime:</label>
-					<input placeholder="Korisničko ime..." type="text" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp">
+					<asp:Label Text="Unesite željeno ime:" runat="server" />
+                    <asp:TextBox runat="server" class="form-control form-control-sm" ID="tbNickname" />
 				</div>
-				<button type="submit" class="btn btn-primary btn-block">Prijava</button>
+				<asp:Button Text="Prijava" runat="server" CssClass="btn btn-primary btn-block" ID="btnPrijava" OnClick="btnPrijava_Click"/>
 			</form>
 		</div>
 	</div>
