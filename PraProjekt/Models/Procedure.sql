@@ -36,6 +36,20 @@ create table Answer (
 	IsActive int default 1,
 	QuestionID int foreign key references Question(IDQuestion)
 )
+
+
+create table NewGuest(
+	ID int primary key identity not null,
+	Nickname nvarchar(50) not null,
+	DateOfCreation DATETIME NOT NULL DEFAULT (GETDATE())
+)
+
+
+create table Guest (
+	IDGuest int primary key identity,
+	Nickname nvarchar(20)
+)
+
 go
 
 -- CRUD procedure
@@ -43,22 +57,35 @@ use DBQuizard
 go
 
 create proc CreateUserAcc
-	@IDUserAcc int output,
 	@Email nvarchar(100),
 	@Pass nvarchar(100),
-	@Username nvarchar(100)
+	@Username nvarchar(100),
+	@IsActive int
 as
 	insert into UserAcc(Email, Pass, Username, IsActive)
-		values (@Email, @Pass, @Username, 1)
-	set @IDUserAcc = SCOPE_IDENTITY()
+		values (@Email, @Pass, @Username, @IsActive)
+go
+
+create proc GetEmails
+as
+	select Email
+	from UserAcc
+go
+
+create proc GetEmail
+	@email nvarchar(100)
+as
+	select Email
+	from UserAcc
+	where Email = @email
 go
 
 create proc LoginUser
 	@Email nvarchar(100),
-	@Pass nvarchar(100),
-	@Succes int output
+	@Pass nvarchar(100)
+	--@Succes int output
 as
-	select COUNT(*)
+	select *
 	from UserAcc
 	where Email = @Email and Pass = @Pass and IsActive = 1
 go
@@ -217,4 +244,22 @@ as
 	RightAnswer = @RightAnswer,
 	IsActive = @IsActive
 	where IDAnswer = @IDAnswer
+go
+
+create proc DeleteFromGuest
+as
+begin
+	delete from NewGuest
+	where DateOfCreation < DATEADD(MINUTE, 30, GETDATE())
+end
+go
+
+
+create proc CreateNewGuest
+	@Nickname nvarchar(20)
+as
+begin
+	insert into NewGuest(Nickname, DateOfCreation)
+	values(@Nickname)
+end
 go

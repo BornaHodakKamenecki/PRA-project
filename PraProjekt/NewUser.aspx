@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LogInScreen.aspx.cs" Inherits="PraProjekt.LogInScreen" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NewUser.aspx.cs" Inherits="PraProjekt.NewUser" %>
 
 <!DOCTYPE html>
 
@@ -62,23 +62,35 @@ form{
 			<form>
 				<!-- to error: add class "has-danger" -->
 				<div class="form-group">
-					<label for="exampleInputEmail1">Unesite email:</label>
-					<input placeholder="Email..." type="email" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <asp:Label Text="Unesite email:" runat="server" />
+                    <asp:TextBox runat="server" class="form-control form-control-sm" ID="tbEmail" OnTextChanged="tbEmail_TextChanged" AutoCompleteType="Email" TextMode="Email"/>
+					<br />
+					<span id="spanCheckEmail" runat="server" visible="false" class="alert-danger">
+                        <asp:Label Text="text" runat="server" ID="lblCheckEmail"/>
+					</span>
 				</div>
 				<div class="form-group">
-					<label for="exampleInputPassword1">Unesite zaporku:</label>
-					<input placeholder="Zaporka..." type="password" class="form-control form-control-sm" id="exampleInputPassword1">
+                    <asp:Label Text="Unesite zaporku:" runat="server" />
+                    <asp:TextBox runat="server" class="form-control form-control-sm" ID="tbPass" TextMode="Password"/>
 				</div>
 				<div class="form-group">
-					<label for="exampleInputPassword1">Ponovno unesite zaporku:</label>
-					<!--<a href="#" style="float:right;font-size:12px;">Zaboravili ste lozinku?</a>-->
-					<input placeholder="Zaporka..." type="password" class="form-control form-control-sm" id="exampleInputPassword1">
+                    <asp:Label Text="Ponovno unesite zaporku:" runat="server" />
+                    <asp:TextBox runat="server" ID="tbRepeatedPass" class="form-control form-control-sm" TextMode="Password"/>
+					<!--<label for="exampleInputPassword1">Ponovno unesite zaporku:</label>
+					<a href="#" style="float:right;font-size:12px;">Zaboravili ste lozinku?</a>
+					<input placeholder="Zaporka..." type="password" class="form-control form-control-sm" id="exampleInputPassword1">-->
 				</div>
+				<!-- provjera je li dvaput unešena ista lozinka -->
+                <asp:CompareValidator ErrorMessage="Zaporke se ne slažu" ControlToValidate="tbPass" runat="server" 
+					ControlToCompare="tbRepeatedPass" Display="Dynamic" ForeColor="Red" Operator="Equal" Type="String"/>
 				<div class="form-group">
-					<label for="exampleInputEmail1">Željeno korisničko ime:</label>
-					<input placeholder="Korisničko ime..." type="text" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <asp:Label Text="Željeno korisničko ime:" runat="server" />
+                    <asp:TextBox runat="server" class="form-control form-control-sm" ID="tbUserName"/>
+					<!--<label for="exampleInputEmail1">Željeno korisničko ime:</label>
+					<input placeholder="Korisničko ime..." type="text" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp">-->
 				</div>
-				<button type="submit" class="btn btn-primary btn-block">Prijava</button>
+                <asp:Button Text="Registracija" runat="server" CssClass="btn btn-primary btn-block"
+							ID="btnRegister" OnClick="btnRegister_Click"/>
 			</form>
 		</div>
 	</div>
