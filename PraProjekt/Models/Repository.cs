@@ -15,7 +15,7 @@ namespace PraProjekt.Models
         // USER
         public static int CreateUserAcc(UserAcc user)
             => SqlHelper.ExecuteNonQuery(cs, "CreateUserAcc", user.Email, user.Pass, user.Username, user.IsActive);
-
+        //GUEST
         internal static void CreateNewGuest(Guest guest)
             => SqlHelper.ExecuteNonQuery(cs, "CreateNewGuest", guest.Nickname);
 
@@ -178,5 +178,11 @@ namespace PraProjekt.Models
 
         public static void UpdateOrDeleteAnswer(Answer a)
             => SqlHelper.ExecuteNonQuery(cs, "UpdateOrDeleteAnswer", a.IDAnswer, a.AnswerText, a.RightAnswer, a.IsActive);
+
+        public static void DeleteFromGuest()
+        {
+
+        }
+
     }
 }

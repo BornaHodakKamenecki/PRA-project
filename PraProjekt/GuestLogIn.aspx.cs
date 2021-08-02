@@ -22,7 +22,10 @@ namespace PraProjekt
                 Nickname = tbNickname.Text
             });
 
-            Response.Redirect("CreateQuiz.aspx");
+            //rijesit u Repou
+            Repository.DeleteFromGuest();
+
+            Response.Redirect("JoinQuiz.aspx");
         }
     }
 }

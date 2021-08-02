@@ -158,6 +158,7 @@
     <Content Include="JoinQuiz.aspx" />
     <Content Include="Models\Procedure.sql" />
     <Content Include="StartingQuiz.aspx" />
+    <Content Include="Question.aspx" />
     <Content Include="WelcomePage.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="GuestLogIn.aspx" />
@@ -262,6 +263,13 @@
     </Compile>
     <Compile Include="StartingQuiz.aspx.designer.cs">
       <DependentUpon>StartingQuiz.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Question.aspx.cs">
+      <DependentUpon>Question.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Question.aspx.designer.cs">
+      <DependentUpon>Question.aspx</DependentUpon>
     </Compile>
     <Compile Include="WelcomePage.aspx.cs">
       <DependentUpon>WelcomePage.aspx</DependentUpon>

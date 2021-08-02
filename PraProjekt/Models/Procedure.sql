@@ -37,9 +37,10 @@ create table Answer (
 	QuestionID int foreign key references Question(IDQuestion)
 )
 
-create table Guest (
+create table NewGuest (
 	IDGuest int primary key identity,
-	Nickname nvarchar(20)
+	Nickname nvarchar(20) not null,
+	DateOfCreation datetime not null
 )
 
 go
@@ -245,3 +246,11 @@ begin
 	where DateOfCreation < DATEADD(MINUTE, 30, GETDATE())
 end
 go
+
+create proc CreateNewGuest
+	@Nickname nvarchar(20)
+as
+begin
+	insert into NewGuest(Nickname)
+	values(@Nickname)
+end
