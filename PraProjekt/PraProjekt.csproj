@@ -143,6 +143,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\Timer.css" />
     <Content Include="CreateQuestion.aspx" />
     <Content Include="CreateQuiZ.aspx" />
     <Content Include="CurrentRanking.aspx" />
@@ -160,6 +161,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="JoinQuiz.aspx" />
     <Content Include="Models\Procedure.sql" />
+    <Content Include="Scripts\WebForms\Timer.js" />
     <Content Include="StartingQuiz.aspx" />
     <Content Include="WelcomePage.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
