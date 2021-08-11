@@ -66,7 +66,7 @@ form{
 					<asp:Label Text="Unesite željeno ime:" runat="server" />
                     <asp:TextBox runat="server" class="form-control form-control-sm" ID="tbNickname" />
 				</div>
-				<asp:Button Text="Prijava" runat="server" CssClass="btn btn-primary btn-block" ID="btnPrijava" OnClick="btnPrijava_Click"/>
+				    <asp:Button Text="Prijava" runat="server" CssClass="btn btn-primary btn-block" ID="btnPrijava" OnClick="btnPrijava_Click"/>
 			</form>
 		</div>
 	</div>

@@ -9,7 +9,6 @@ namespace PraProjekt.Models
     {
         public int IDGuest { get; set; }
         public string Nickname { get; set; }
-
         
     }
 }

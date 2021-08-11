@@ -2,12 +2,6 @@
 use DBQuizard
 go
 
-drop table if exists Answer;
-drop table if exists NewGuest;
-drop table if exists Guest;
-drop table if exists Question;
-drop table if exists Quiz;
-drop table if exists UserAcc;
 go
 
 create table UserAcc (
@@ -46,6 +40,7 @@ create table Answer (
 )
 
 
+
 go
 create table NewGuest(
 	ID int primary key identity not null,
@@ -53,11 +48,7 @@ create table NewGuest(
 	DateOfCreation DATETIME NOT NULL DEFAULT (GETDATE())
 )
 
-go
-create table Guest (
-	IDGuest int primary key identity,
-	Nickname nvarchar(20)
-)
+
 
 go
 
@@ -65,7 +56,7 @@ go
 use DBQuizard
 go
 
-drop proc if exists CreateUserAcc;
+
 go
 create proc CreateUserAcc
 	@Email nvarchar(100),
@@ -77,7 +68,7 @@ as
 		values (@Email, @Pass, @Username, @IsActive)
 go
 
-drop proc if exists GetEmails;
+
 go
 create proc GetEmails
 as
@@ -85,7 +76,7 @@ as
 	from UserAcc
 go
 
-drop proc if exists GetEmail;
+
 go
 create proc GetEmail
 	@email nvarchar(100)
@@ -95,7 +86,7 @@ as
 	where Email = @email
 go
 
-drop proc if exists LoginUser;
+
 go
 create proc LoginUser
 	@Email nvarchar(100),
@@ -107,7 +98,7 @@ as
 	where Email = @Email and Pass = @Pass and IsActive = 1
 go
 
-drop proc if exists UpdateUserAcc;
+
 go
 create proc UpdateUserAcc
 	@IDUserAcc int,
@@ -121,7 +112,7 @@ as
 	where IDUserAcc = @IDUserAcc
 go
 
-drop proc if exists DeleteUserAcc;
+
 go
 create proc DeleteUserAcc
 	@IDUserAcc int
@@ -132,7 +123,7 @@ as
 	where IDUserAcc = @IDUserAcc
 go
 
-drop proc if exists CreateQuiz;
+
 go
 create proc CreateQuiz
 	@IDQuiz int output,
@@ -144,7 +135,7 @@ as
 	set @IDQuiz = SCOPE_IDENTITY()
 go
 
-drop proc if exists GetQuiz;
+
 go
 create proc GetQuiz
 	@IDQuiz int
@@ -154,7 +145,7 @@ as
 	where IDQuiz = @IDQuiz
 go
 
-drop proc if exists StartQuiz;
+
 go
 create proc StartQuiz
 	@IDQuiz int
@@ -164,7 +155,6 @@ as
 	where IsActive = 1 and IDQuiz = @IDQuiz
 go
 
-drop proc if exists DeleteQuiz;
 go
 create proc DeleteQuiz
 	@IDQuiz int
@@ -175,7 +165,7 @@ as
 	where IDQuiz = @IDQuiz
 go
 
-drop proc if exists QuizesFromUser;
+
 go
 create proc QuizesFromUser
 	@IDUserAcc int
@@ -185,7 +175,7 @@ as
 	where UserAccID = @IDUserAcc
 go
 
-drop proc if exists CreateQuestion;
+
 go
 create proc CreateQuestion
 	@IDQuestion int output,
@@ -198,7 +188,7 @@ as
 	set @IDQuestion = SCOPE_IDENTITY()
 go
 
-drop proc if exists GetQuestion;
+
 go
 create proc GetQuestion
 	@IDQuestion int
@@ -208,7 +198,7 @@ as
 	where IDQuestion = @IDQuestion
 go
 
-drop proc if exists GetAllQuestionsForQuiz;
+
 go
 create proc GetAllQuestionsForQuiz
 	@IDQuiz int
@@ -218,7 +208,7 @@ as
 	where QuizID = @IDQuiz
 go
 
-drop proc if exists UpdateOrDeleteQuestion;
+
 go
 create proc UpdateOrDeleteQuestion
 	@IDQuestion int,
@@ -234,7 +224,6 @@ as
 	where IDQuestion = @IDQuestion
 go
 
-drop proc if exists CreateAnswer;
 go
 create proc CreateAnswer
 	@IDAnswer int output,
@@ -247,7 +236,6 @@ as
 	set @IDAnswer = SCOPE_IDENTITY()
 go
 
-drop proc if exists GetAnswer;
 go
 create proc GetAnswer
 	@IDAnswer int
@@ -257,7 +245,6 @@ as
 	where IDAnswer = @IDAnswer
 go
 
-drop proc if exists GetAllAnswersForQuestion;
 go
 create proc GetAllAnswersForQuestion
 	@QuestionID int
@@ -267,7 +254,6 @@ as
 	where IsActive = 1 and QuestionID = @QuestionID
 go
 
-drop proc if exists GetAnswersCount;
 go
 create proc GetAnswersCount
 	@QuestionID int,
@@ -279,7 +265,6 @@ as
 					where QuestionID = @QuestionID
 go
 
-drop proc if exists UpdateOrDeleteAnswer;
 go
 create proc UpdateOrDeleteAnswer
 	@IDAnswer int,
@@ -296,7 +281,6 @@ as
 go
 
 
-drop proc if exists DeleteFromGuest;
 go
 create proc DeleteFromGuest
 as
@@ -307,8 +291,6 @@ end
 go
 
 
-drop proc if exists CreateNewGuest;
-go
 create proc CreateNewGuest
 	@Nickname nvarchar(20)
 as
@@ -317,3 +299,4 @@ begin
 	values(@Nickname, GETDATE())
 end
 go
+
